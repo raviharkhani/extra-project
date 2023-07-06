@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sound Board</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url(music-bg-img.jpg);
+        background-size: cover;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .btn {
+        background-color: rebeccapurple;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        margin: 1rem;
+        padding: 1.5rem 3rem;
+        padding-right: 35px;
+        font-size: 1.2rem;
+        font-family: inherit;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+    .btn:focus {
+        outline: none;
+    }
+</style>
+
+<body>
+    <audio id="geeta rabari"
+        src="__ Geeta Rabari  __ Geeta Rabari Best Song __ New Gujarati Song __ JukeBox __ Gujarati JukeBox __.mp3"></audio>
+    <audio id="apna banale"
+        src="Apna Bana Le - Bhediya _ Varun Dhawan, Kriti Sanon_ Sachin-Jigar, Arijit Singh, Amitabh Bhattacharya.mp3"></audio>
+    <audio id="manike"
+        src="Manike (Audio)_ Thank God _ Nora, Sidharth _ Tanishk,Yohani,Jubin,Surya R _ Rashmi Virag _ Bhushan K.mp3"></audio>
+    <audio id="gaman santhal"
+        src="Gaman Santhal New Song l Dev dwarkano Nath l દેવ દ્વારકાનો નાથ l Gaman Bhuvaji _ @Jannat Video Patan.mp3"></audio>
+
+    <div id="buttons"></div>
+
+    <script src="script.js"></script>
+    <script>
+        const sounds = ['geeta rabari', 'apna banale', 'manike', 'gaman santhal']
+
+        sounds.forEach(sound => {
+            const btn = document.createElement('button')
+            btn.classList.add('btn')
+
+            btn.innerText = sound
+
+            btn.addEventListener('click', () => {
+                stopSongs()
+
+                document.getElementById(sound).play()
+            })
+
+            document.getElementById('buttons').appendChild(btn)
+        })
+
+        function stopSongs() {
+            sounds.forEach(sound => {
+                const song = document.getElementById(sound)
+
+                song.pause()
+                song.currentTime = 0;
+            })
+        }
+    </script>
+</body>
+
+</html>

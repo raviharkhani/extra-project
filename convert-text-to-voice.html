@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+  <style>
+    body{
+        background-image: url(form-bg-image.webp);
+    }
+
+    textarea{
+        background-color: rgb(244, 248, 248);
+        border-radius: 10px;
+        font-size: xx-large;
+        font-weight: bold;
+        border: 5px solid fuchsia;
+    }
+
+    button{
+        background-color: orangered;
+        border-radius: 10px;
+        font-size: x-large;
+        font-weight: bold;
+        padding: 7px 15px;
+    }
+  </style>
+
+<body>
+    <textarea></textarea> <br>
+    <button>Speak</button>
+
+    <script>
+        button = document.querySelector("button");
+        text = document.querySelector("textarea");
+        button.addEventListener("click", () =>{
+            let utterance = new SpeechSynthesisUtterance(text.value);
+            speechSynthesis.speak(utterance);
+        });
+    </script>
+
+</body>
+</html>
